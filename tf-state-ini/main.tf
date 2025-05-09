@@ -6,7 +6,7 @@ provider "azurerm" {
 resource "azurerm_storage_account" "golive" {
   name = "golive.roboshop" # must be globally unique & lowercase
   resource_group_name      = "golive"
-  location                 = "UK west"
+  location                 = "UK West"
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
