@@ -9,14 +9,14 @@ resource "azurerm_resource_group" "rg" {
   location = "UK West"
 }
 
-# Create a storage account
-resource "azurerm_storage_account" "storage" {
-  name                     = "storageroboshop"  # ✅ Removed the dot (invalid character)
-  resource_group_name      = azurerm_resource_group.rg.name  # ✅ Use .name, not .id
-  location                 = azurerm_resource_group.rg.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
+# # Create a storage account
+# resource "azurerm_storage_account" "storage" {
+#   name                     = "storageroboshop"  # ✅ Removed the dot (invalid character)
+#   resource_group_name      = azurerm_resource_group.rg.name  # ✅ Use .name, not .id
+#   location                 = azurerm_resource_group.rg.location
+#   account_tier             = "Standard"
+#   account_replication_type = "LRS"
+# }
 
 # Create a blob container
 resource "azurerm_storage_container" "tfstate" {
