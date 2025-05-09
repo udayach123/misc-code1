@@ -4,7 +4,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_storage_account" "golive" {
-  name = "golive.storage123" # must be globally unique & lowercase
+  name = "golive.roboshop" # must be globally unique & lowercase
   resource_group_name      = "golive"
   location                 = "UK west"
   account_tier             = "Standard"
@@ -20,8 +20,10 @@ resource "azurerm_storage_container" "container" {
 terraform {
   backend "azurerm" {
     #tenant_id                  = "00000000-0000-0000-0000-000000000000"
-    subscription_id             = "a9bc3c93-b459-4ffb-8364-38ff9554f652"
-    resource_group_name         = "golive"
-    storage_account_name        = "golive.storage123"
-    container_name              = "golive.container"                               #
+    subscription_id      = "a9bc3c93-b459-4ffb-8364-38ff9554f652"
+    resource_group_name  = "golive"
+    storage_account_name = "golive.roboshop"
+    container_name       = "golive.container"
+    key                  = "prod.terraform.tfstate"
+  }
 }
