@@ -12,4 +12,3 @@ variable "rg_name" {
 variable "rg_location" {
   default = "UK West"
 }
-
