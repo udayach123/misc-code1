@@ -1,4 +1,3 @@
-
 resource "azurerm_public_ip" "publicip" {
   name                = var.name
   location            = var.rg_location
@@ -25,39 +24,6 @@ resource "azurerm_network_interface_security_group_association" "nsg-attach" {
   network_security_group_id = "/subscriptions/a9bc3c93-b459-4ffb-8364-38ff9554f652/resourceGroups/golive/providers/Microsoft.Network/networkSecurityGroups/allow-all"
 }
 
-############# We moved to spot instance for saving the cost
-
-# resource "azurerm_virtual_machine" "vm" {
-#   name                          = var.name
-#   location                      = var.rg_location
-#   resource_group_name           = var.rg_name
-#   network_interface_ids         = [azurerm_network_interface.privateip.id]
-#   vm_size                       = var.vm_size
-#   delete_os_disk_on_termination = true
-#
-#   storage_image_reference {
-#     id = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Compute/images/local-devops-practice"
-#   }
-#
-#   storage_os_disk {
-#     name              = "${var.name}-disk"
-#     caching           = "ReadWrite"
-#     create_option     = "FromImage"
-#     managed_disk_type = "Standard_LRS"
-#   }
-#
-#   os_profile {
-#     computer_name  = var.name
-#     admin_username = "azuser"
-#     admin_password = "DevOps@123456"
-#   }
-#
-#   os_profile_linux_config {
-#     disable_password_authentication = false
-#   }
-# }
-
-
 resource "azurerm_linux_virtual_machine" "vm" {
   name                            = var.name
   location                        = var.rg_location
@@ -67,6 +33,9 @@ resource "azurerm_linux_virtual_machine" "vm" {
   admin_password                  = "Passw0rd@1234"
   disable_password_authentication = false
   network_interface_ids           = [azurerm_network_interface.privateip.id]
+  priority                        = "Spot"
+  eviction_policy                = "Deallocate"
+  max_bid_price                  = -1
 
   os_disk {
     name                 = "${var.name}-disk"
@@ -74,13 +43,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
     storage_account_type = "Standard_LRS"
   }
 
-  source_image_id = "/subscriptions/a9bc3c93-b459-4ffb-8364-38ff9554f652/resourceGroups/golive/providers/Microsoft.Compute/images/local-devops-practice"
-
-
-  # Spot Details
-  priority        = "Spot"
-  max_bid_price   = -1
-  eviction_policy = "Deallocate"
+  source_image_id = "/subscriptions/a9bc3c93-b459-4ffb-8364-38ff9554f652/resourceGroups/golive/providers/Microsoft.Compute/images/terraform-test-image"
 }
 
 resource "azurerm_dns_a_record" "public_dns_record" {
@@ -88,15 +51,14 @@ resource "azurerm_dns_a_record" "public_dns_record" {
   name                = var.name
   zone_name           = "yourtherapist.in"
   resource_group_name = var.rg_name
-  ttl                 = 3
+  ttl                 = 300
   records             = [azurerm_public_ip.publicip.ip_address]
 }
-
 
 resource "azurerm_dns_a_record" "private_dns_record" {
   name                = "${var.name}-dev"
   zone_name           = "yourtherapist.in"
   resource_group_name = var.rg_name
-  ttl                 = 3
+  ttl                 = 300
   records             = [azurerm_network_interface.privateip.private_ip_address]
 }
