@@ -6,3 +6,4 @@ module "tools-vm" {
   name        = each.key
   vm_size     = each.value[ "vm_size" ]
 }
+#
