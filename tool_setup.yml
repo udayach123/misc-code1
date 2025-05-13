@@ -3,7 +3,7 @@
   become: true
 
   vars:
-    tool_name: vault
+    role_name: vault
 
   roles:
-    - "{{ tool_name }}"
+    - "{{ role_name }}"
