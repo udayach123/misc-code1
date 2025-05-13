@@ -3,28 +3,19 @@ provider "azurerm" {
   subscription_id = "a9bc3c93-b459-4ffb-8364-38ff9554f652"
 }
 
-# Create a resource group
-resource "azurerm_resource_group" "rg" {
-  name     = "golive"
-  location = "UK West"
+resource "azurerm_storage_account" "tfstate" {
+  name                     = "storageroboshop"
+  resource_group_name      = "golive"
+  location                 = "UK West"
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
 }
 
-# # Create a storage account
-# resource "azurerm_storage_account" "storage" {
-#   name                     = "storageroboshop"  # ✅ Removed the dot (invalid character)
-#   resource_group_name      = azurerm_resource_group.rg.name  # ✅ Use .name, not .id
-#   location                 = azurerm_resource_group.rg.location
-#   account_tier             = "Standard"
-#   account_replication_type = "LRS"
-# }
-
-# Create a blob container
-resource "azurerm_storage_container" "tfstate" {
+resource "azurerm_storage_container" "tfstates" {
   name                  = "tfstate.container"
-  storage_account_name  = azurerm_storage_account.storage.name
+  storage_account_id    = azurerm_storage_account.tfstate.id
   container_access_type = "private"
 }
-
 # Terraform backend configuration (must be in a separate file for initialization)
 # NOTE: This block should go in a separate file like backend.tf *before* you run `terraform init`
 
