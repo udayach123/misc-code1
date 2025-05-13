@@ -49,7 +49,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
 resource "azurerm_dns_a_record" "public_dns_record" {
   depends_on          = [azurerm_linux_virtual_machine.vm]
-  name                = "${var.name}-dev"
+  name                = var.name
   zone_name           = "yourtherapist.in"
   resource_group_name = var.rg_name
   ttl                 = 300
