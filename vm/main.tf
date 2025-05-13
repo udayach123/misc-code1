@@ -30,9 +30,9 @@ resource "azurerm_linux_virtual_machine" "vm" {
   resource_group_name             = var.rg_name
   size                            = var.vm_size
   network_interface_ids           = [azurerm_network_interface.privateip.id]
-  priority                        = "Spot"
-  eviction_policy                 = "Deallocate"
-  max_bid_price                   = -1
+  # priority                        = "Spot"
+  # eviction_policy                 = "Deallocate"
+  # max_bid_price                   = -1
   admin_username                  = "devops18"
   admin_password                  = "Passw0rd@1234"
   disable_password_authentication = false
