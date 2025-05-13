@@ -25,6 +25,6 @@ terraform {
     resource_group_name  = "golive"
     storage_account_name = "storageroboshop"
     container_name       = "tfstate.container"
-    key                  = "prod.terraform.tfstate"
+    key                  = "vault.terraform.tfstate"
   }
 }
