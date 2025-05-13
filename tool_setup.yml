@@ -1,8 +1,9 @@
 - name: Tool Setup
   hosts: all
   become: true
-  roles:
-    - "{{ tool_name }}"
 
   vars:
     tool_name: vault
+
+  roles:
+    - "{{ tool_name }}"
