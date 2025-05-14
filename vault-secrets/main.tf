@@ -1,9 +1,3 @@
-variable "token" {}
-provider "vault" {
-  address = "http://vault.yourtherapist.in:8200"
-  token   =  var.token
-}
-
 resource "vault_mount" "kv" {
   for_each =  var.secrets
   path        = each.key
@@ -12,10 +6,3 @@ resource "vault_mount" "kv" {
   description = each.value["description"]
 }
 
-variable "secrets" {
-  default = {
-    roboshop-dev = {
-      description = "Roboshop app component for all secrets"
-    }
-  }
-}
