@@ -11,7 +11,7 @@ variable "secret" {
   }
 }
 
-variable "values" {
+variable "value" {
   default = {
     cart = {
       secret = "roboshop-dev"

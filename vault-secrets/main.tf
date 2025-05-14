@@ -6,8 +6,8 @@ resource "vault_mount" "kv" {
   description = each.value["description"]
 }
 
-resource "vault_kv_secret_v2" "values" {
-  for_each                   = var.values
+resource "vault_kv_secret_v2" "value" {
+  for_each                   = var.value
   mount                      = each.value["secret"]
   name                       = each.key
   data_json                  = jsonencode(each.value["value"])
