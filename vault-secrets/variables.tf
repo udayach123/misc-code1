@@ -13,10 +13,6 @@ variable "secrets" {
 
 variable "values" {
   default = {
-    cart = {
-      secret = "roboshop-dev"
-    }
-
     ssh = {
       secret = "roboshop-infra"
       value = {
