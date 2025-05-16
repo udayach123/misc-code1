@@ -1,6 +1,6 @@
 variable "tools" {
   default = {
-    vault = {
+    vaultnew = {
       vmnew_size = "Standard_B2s"
     }
   }
