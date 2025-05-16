@@ -1,7 +1,7 @@
 variable "tools" {
   default = {
     vault = {
-      vmnew_size = "Standard_B2s"
+      vm_size = "Standard_B2s"
     }
   }
 }
@@ -14,4 +14,4 @@ variable "rg_location" {
   default = "UK West"
 }
 
-#
+
