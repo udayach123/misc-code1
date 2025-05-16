@@ -93,8 +93,8 @@ variable "values" {
     cart = {
       secret = "roboshop-dev"
       value = {
-        REDIS_HOST     = "redis-dev.rdevopsb84.online"
-        CATALOGUE_HOST = "catalogue-dev.rdevopsb84.online"
+        REDIS_HOST     = "redis-dev.yourtherapist.in"
+        CATALOGUE_HOST = "catalogue-dev.yourtherapist.in"
         CATALOGUE_PORT = 8080
       }
     }
