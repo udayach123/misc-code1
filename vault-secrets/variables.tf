@@ -23,7 +23,7 @@ variable "values" {
 
     frontend-robo = {
       secret = "roboshop-dev"
-      value  = {
+      value = {
         catalogue_url  = "http://catalogue-dev.yourtherapist.in:8080/"
         user_url       = "http://user-dev.yourtherapist.in:8080/"
         cart_url       = "http://cart-dev.yourtherapist.in:8080/"

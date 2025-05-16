@@ -57,7 +57,7 @@ resource "azurerm_dns_a_record" "public_dns_record" {
 }
 
 resource "azurerm_dns_a_record" "private_dns_record" {
-  name                = "${var.name}-vaultnew"
+  name                = "${var.name}-vault"
   zone_name           = "yourtherapist.in"
   resource_group_name = var.rg_name
   ttl                 = 300
