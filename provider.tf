@@ -4,10 +4,10 @@ provider "azurerm" {
 }
 
 
-# provider "vault" {
-#   address = "http://vaultnew.yourtherapist.in:8200"
-#   token   =  var.token
-# }
+provider "vault" {
+  address = "http://vaultnew.yourtherapist.in:8200"
+  token   =  var.token
+}
 
 terraform {
   backend "azurerm" {
@@ -18,4 +18,8 @@ terraform {
     key                  = "tools.terraform-tfstate"
   }
 }
-#####test####
+provider "helm" {
+  kubernetes {
+    config_path = "~/.kube/config"
+  }
+}
