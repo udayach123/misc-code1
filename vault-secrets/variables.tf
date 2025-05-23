@@ -29,15 +29,15 @@ variable "values" {
         cart_url       = "http://cart-dev.yourtherapist.in:8080/"
         shipping_url   = "http://shipping-dev.yourtherapist.in:8080/"
         payment_url    = "http://payment-dev.yourtherapist.in:8080/"
-        CATALOGUE_HOST = "catalogue-dev.yourtherapist.in"
+        CATALOGUE_HOST = "catalogue"
         CATALOGUE_PORT = 8080
-        USER_HOST      = "user-dev.yourtherapist.in"
+        USER_HOST      = "user"
         USER_PORT      = 8080
-        CART_HOST      = "cart-dev.yourtherapist.in"
+        CART_HOST      = "cart"
         CART_PORT      = 8080
-        SHIPPING_HOST  = "shipping-dev.yourtherapist.in"
+        SHIPPING_HOST  = "shipping"
         SHIPPING_PORT  = 8080
-        PAYMENT_HOST   = "payment-dev.yourtherapist.in"
+        PAYMENT_HOST   = "payment"
         PAYMENT_PORT   = 8080
       }
     }
@@ -66,7 +66,7 @@ variable "values" {
     shipping = {
       secret = "roboshop-dev"
       value = {
-        CART_ENDPOINT = "cart-dev.yourtherapist.in:8080"
+        CART_ENDPOINT = "cart:8080"
         DB_HOST       = "mysql-dev.yourtherapist.in"
         DB_USER       = "root"
         DB_PASS       = "RoboShop@1"
@@ -80,9 +80,9 @@ variable "values" {
     payment = {
       secret = "roboshop-dev"
       value = {
-        CART_HOST = "cart-dev.yourtherapist.in"
+        CART_HOST = "cart"
         CART_PORT = "8080"
-        USER_HOST = "user-dev.yourtherapist.in"
+        USER_HOST = "user"
         USER_PORT = "8080"
         AMQP_HOST = "rabbitmq-dev.yourtherapist.in"
         AMQP_USER = "roboshop"
@@ -94,7 +94,7 @@ variable "values" {
       secret = "roboshop-dev"
       value = {
         REDIS_HOST     = "redis-dev.yourtherapist.in"
-        CATALOGUE_HOST = "catalogue-dev.yourtherapist.in"
+        CATALOGUE_HOST = "catalogue"
         CATALOGUE_PORT = 8080
       }
     }
