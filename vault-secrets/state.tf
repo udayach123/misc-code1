@@ -2,10 +2,10 @@ provider "azurerm" {
   features {}
   subscription_id = "a9bc3c93-b459-4ffb-8364-38ff9554f652"
 }
-provider "vault" {
-  address = "http://vault.yourtherapist.in:8200"
-  token   =  var.token
-}
+# provider "vault" {
+#   address = "http://vault.yourtherapist.in:8200"
+#   token   =  var.token
+# }
 
 terraform {
   backend "azurerm" {
