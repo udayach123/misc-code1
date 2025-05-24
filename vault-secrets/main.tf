@@ -13,3 +13,4 @@ resource "vault_kv_secret_v2" "values" {
   name       = each.key
   data_json  = jsonencode(each.value["value"])
 }
+#####
