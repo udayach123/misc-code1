@@ -21,7 +21,7 @@ variable "values" {
       }
     }
 
-    frontend-robo = {
+    frontend = {
       secret = "roboshop-dev"
       value = {
         catalogue_url  = "http://catalogue-dev.yourtherapist.in:8080/"
@@ -50,7 +50,7 @@ variable "values" {
         DB_TYPE      = "mongo"
         APP_GIT_URL  = "https://github.com/roboshop-devops-project-v3/catalogue"
         DB_HOST      = "mongodb-dev.yourtherapist.in"
-        SCHEMA_FILE  = "db/master-data.js"
+        #SCHEMA_FILE  = "db/master-data.js"
       }
     }
 
@@ -116,4 +116,3 @@ variable "values" {
     }
   }
 }
-####
