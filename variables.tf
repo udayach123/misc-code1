@@ -3,6 +3,9 @@ variable "tools" {
     vault = {
       vm_size = "Standard_B2s"
     }
+     github-runner = {
+       vm_size = "Standard_B2s"
+    }
   }
 }
 
