@@ -4,7 +4,7 @@ variable "tools" {
       vm_size = "Standard_B2s"
     }
      github-runner = {
-       vm_size = "Standard_B2s"
+      vm_size = "Standard_B2s"
     }
   }
 }
