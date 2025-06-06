@@ -27,6 +27,6 @@
     restart: true
     restart_policy: always
     env:
-      ORG: "{{ github_org }}"
-      TOKEN: "{{ github_token }}"
+      ORG: "https://github.com/golive123"
+      TOKEN: "BTIL2UNECSVLM7QWA3KLG6DIIMM2C"
       NAME: "{{ item }}"
