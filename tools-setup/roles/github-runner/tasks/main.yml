@@ -22,7 +22,7 @@
   community.docker.docker_container:
     name: "{{ item }}"
     image: udaych123/github-runner
-    pull: always
+    pull: true
     state: started
     restart: true
     restart_policy: always
