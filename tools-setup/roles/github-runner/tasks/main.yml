@@ -27,8 +27,8 @@
     restart: true
     restart_policy: always
     env:
-     ORG: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/github-runner:ORG token={{ token }} url=http://vault.yourtherapist.in:8200/') }}"
-     TOKEN: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/github-runner:TOKEN token={{ token }} url=http://vault.yourtherapist.in:8200/') }}"
+     ORG: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/data/github-runner:ORG token={{ token }} url=http://vault.yourtherapist.in:8200/') }}"
+     TOKEN: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/data/github-runner:TOKEN token={{ token }} url=http://vault.yourtherapist.in:8200/') }}"
      NAME: "{{ item }}"
      # ORG: "https://github.com/golive123"
       #TOKEN: "BTIL2UICYBVEH7JMJ5IVFWLIIMUUK"
