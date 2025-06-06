@@ -21,7 +21,7 @@
     - runner-3
   community.docker.docker_container:
     name: "{{ item }}"
-    image: rkalluru/github-runner
+    image: udaych123/github-runner
     pull: always
     state: started
     restart: true
