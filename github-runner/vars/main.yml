@@ -1,0 +1,5 @@
+- hosts: local
+  vars_files:
+    - ../vars/main.yml  # Adjust path as needed
+  roles:
+    - github-runner
