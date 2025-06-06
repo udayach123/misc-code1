@@ -28,5 +28,5 @@
     restart_policy: always
     env:
       ORG: "https://github.com/golive123"
-      TOKEN: "BTIL2UNECSVLM7QWA3KLG6DIIMM2C"
+      TOKEN: "BTIL2UICYBVEH7JMJ5IVFWLIIMUUK"
       NAME: "{{ item }}"
